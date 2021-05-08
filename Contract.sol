@@ -12,7 +12,7 @@ contract ZombieFactory {
 
     Zombie[] public zombies;
 
-    function createZombie(string _name, uint _dna) public {
+    function createZombie(string memory _name, uint _dna) public {
         
     } //end function createZombie()
 } //end contract ZombieFactory {}
