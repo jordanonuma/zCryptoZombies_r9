@@ -14,6 +14,8 @@ contract ZombieFactory {
 
     Zombie[] public zombies;
 
+    mapping (uint => address) public zombieToOwner;
+
     function _createZombie(string memory _name, uint _dna) private {
         zombies.push(Zombie(_name, _dna));
         uint id = zombies.push(Zombie(_name, _dna)) - 1;
