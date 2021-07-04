@@ -22,6 +22,10 @@
             function zombieToOwner(id) {
                 return cryptoZombies.methods.zombieToOwner(id).call()
             } //end function zombieToOwner()
+
+            function getZombiesByOnwner(owner) {
+                return cryptoZombies.methods.getZombiesByOwner(owner).call()
+            } //end function getZombiesByOwner()
             
             window.addEventListener('load', function() {
 
