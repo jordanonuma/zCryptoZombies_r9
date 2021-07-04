@@ -14,20 +14,25 @@
                 var cryptoZombiesAddress = "YOUR_CONTRACT_ADDRESS";
                 var cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
             } //end function startApp()
+
+            function getZombieDetails(id) {
+                return cryptoZombies.methods.zombies(id).call()
+            } //end function getZombieDetails()
+
             window.addEventListener('load', function() {
 
-            // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-            if (typeof web3 !== 'undefined') {
-            // Use Mist/MetaMask's provider
-            web3js = new Web3(web3.currentProvider);
-            } else {
-            // Handle the case where the user doesn't have web3. Probably
-            // show them a message telling them to install Metamask in
-            // order to use our app.
-            }
+                // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+                if (typeof web3 !== 'undefined') {
+                // Use Mist/MetaMask's provider
+                web3js = new Web3(web3.currentProvider);
+                } else {
+                // Handle the case where the user doesn't have web3. Probably
+                // show them a message telling them to install Metamask in
+                // order to use our app.
+                }
 
-            // Now you can start your app & access web3js freely:
-            startApp()
+                // Now you can start your app & access web3js freely:
+                startApp()
 
             })
         </script>
