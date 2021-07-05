@@ -22,7 +22,7 @@
                         userAccount = web3.eth.accounts[0];
                         // Call some function to update the UI with the new account
                         cryptoZombies.methods.getZombiesByOwner(userAccount).call()
-                    } //end if()
+                    }.then(displayZombies); //end if()
                 }, 100); //end function()
             } //end function startApp()
 
