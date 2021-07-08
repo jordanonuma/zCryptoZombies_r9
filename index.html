@@ -67,7 +67,7 @@
             } //end function feedOnKitty()
 
             function levelUp(zombieId) {
-                $("#txStatus").text("Leveling up your zomibe...");
+                $("#txStatus").text("Leveling up your zombie...");
                 .send({ from: userAccount, value: web3js.utils.toWei("0.001", "ether") })
                 .on("receipt", function(receipt) {
                     $("#txStatus").text("Ate a kitty and spawned a new Zombie!");
