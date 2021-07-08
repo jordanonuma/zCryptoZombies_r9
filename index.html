@@ -56,13 +56,13 @@
                 return cryptoZombies.methods.feedOnKitty(zombieId, kittyId)
                 .send({ from: userAccount })
                 .on("receipt", function(receipt) {
-                $("#txStatus").text("Successfully created " + name + "!");
-                // Transaction was accepted into the blockchain, let's redraw the UI
-                getZombiesByOwner(userAccount).then(displayZombies);
+                    $("#txStatus").text("$("#txStatus").text("Ate a kitty and spawned a new Zombie!");
+                    // Transaction was accepted into the blockchain, let's redraw the UI
+                    getZombiesByOwner(userAccount).then(displayZombies);
                 })
                 .on("error", function(error) {
-                // Do something to alert the user their transaction has failed
-                $("#txStatus").text(error);
+                    // Do something to alert the user their transaction has failed
+                    $("#txStatus").text(error);
                 });
             } //end function feedOnKitty()
 
