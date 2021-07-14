@@ -3,6 +3,7 @@ pragma solidity 0.4.25;
 import "./ZB/ZBGameMode.sol";
 
 contract ExampleGame is ZBGameMode  {
+    mapping (string => bool) internal bannedCards;
 
     function beforeMatchStart(bytes serializedGameState) external {
         GameState memory gameState;
