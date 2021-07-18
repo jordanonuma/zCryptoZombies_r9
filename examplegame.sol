@@ -59,7 +59,7 @@ contract ExampleGame is ZBGameMode  {
                     cardCount++;
                 } //end if()
             } //end for(j)
-            changes.changePlayerCardsInDeck(Player.Player1, newCards, cardCount);
+            changes.changePlayerCardsInDeck(Player(i), newCards, cardCount);
         } //end for(i)
     } //end function beforeMatchStart()
 
