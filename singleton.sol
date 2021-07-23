@@ -18,10 +18,9 @@ contract Singleton is ZBGameMode  {
 
             for (uint j = 0; j < gameState.playerStates[i].cardsInDeck.length; j++) {
                 bool cardAlreadyInDeck == false;
-                
-                if (isLegalCard(gameState.playerStates[i].cardsInDeck[j])) {
-                    newCards[cardCount] = gameState.playerStates[i].cardsInDeck[j];
-                    cardCount++;
+
+                if (!cardAlreadyInDeck) {
+                    
                 } //end if()
             } //end for(j)
 
