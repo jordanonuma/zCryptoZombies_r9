@@ -2,7 +2,7 @@ pragma solidity 0.4.25;
 
 import "./ZB/ZBGameMode.sol";
 
-contract Munchkin is ZBGameMode  {
+contract Singleton is ZBGameMode  {
     mapping (string => bool) internal bannedCards;
 
     function beforeMatchStart(bytes serializedGameState) external {
@@ -17,6 +17,8 @@ contract Munchkin is ZBGameMode  {
             uint cardCount = 0;
 
             for (uint j = 0; j < gameState.playerStates[i].cardsInDeck.length; j++) {
+                bool cardAlreadyInDeck == false;
+                
                 if (isLegalCard(gameState.playerStates[i].cardsInDeck[j])) {
                     newCards[cardCount] = gameState.playerStates[i].cardsInDeck[j];
                     cardCount++;
@@ -33,4 +35,4 @@ contract Munchkin is ZBGameMode  {
         return (card.gooCost <= 2);
     } //end function isLegalCard()
 
-} //end contract Munchkin{}
+} //end contract Singleton{}
