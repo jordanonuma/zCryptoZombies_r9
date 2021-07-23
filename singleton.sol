@@ -20,7 +20,8 @@ contract Singleton is ZBGameMode  {
                 bool cardAlreadyInDeck == false;
 
                 if (!cardAlreadyInDeck) {
-                    
+                    newCards[cardCount] = gameState.playerStates[i].cardsInDeck[j];
+                    cardCount++;
                 } //end if()
             } //end for(j)
 
@@ -29,9 +30,5 @@ contract Singleton is ZBGameMode  {
 
         changes.emit();
     } //end function beforeMatchStart()
-
-    function isLegalCard(CardInstance card) internal view returns (bool) {
-        return (card.gooCost <= 2);
-    } //end function isLegalCard()
 
 } //end contract Singleton{}
