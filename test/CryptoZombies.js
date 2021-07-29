@@ -1,6 +1,6 @@
-const CryptoZombies = artifacts.require("CryptoZombies.js");
+const CryptoZombies = artifacts.require("CryptoZombies");
     
-contract("CryptoZombies.js", (accounts) => {
+contract("CryptoZombies", (accounts) => {
     it("should be able to create a new zombie", () => {
        
     })
