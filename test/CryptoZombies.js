@@ -20,10 +20,14 @@ contract("CryptoZombies", (accounts) => {
         await utils.shouldThrow(contractInstance.createRandomZombie(zombieNames[1], {from: alice}));
     }) //end it()
 
-    xcontext("with the single-step transfer scenario", async () => {
+    context("with the single-step transfer scenario", async () => {
         it("should transfer a zombie", async () => {
-          // TODO: Test the single-step transfer scenario.
-        })
+            const result = await contractInstance.createRandomZombie(zombieNames[0], {from: alice});
+            const zombieId = result.logs[0].args.name, zombieNames[0]);
+            await contractInstance.transferFrom(alice, bob, {from: msg.sender}());
+            const newOwner = ownerOf(zombieId);
+            assert.equal(newOwner, Bob);
+        }) //end it()
     }) //end context()
     
     xcontext("with the two-step transfer scenario", async () => {
