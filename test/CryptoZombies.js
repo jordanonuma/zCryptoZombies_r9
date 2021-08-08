@@ -52,6 +52,18 @@ contract("CryptoZombies", (accounts) => {
             await contractInstance.transferFrom(alice, bob, zombieId, {from: alice});
             const newOwner = await contractInstance.ownerOf(zombieId);
             assert.equal(newOwner,bob);
-         })
+         }) //end it()
+         it("zombies should be able to attack another zombie", async () => {
+            let result;
+            result = await contractInstance.createRandomZombie(zombieNames[0], {from: alice});
+            const firstZombieId = result.logs[0].args.zombieId.toNumber();
+            result = await contractInstance.createRandomZombie(zombieNames[1], {from: bob});
+            const secondZombieId = result.logs[0].args.zombieId.toNumber();
+            
+            //Increases the time on test chain by 1 day
+            await time.increase(time.duration.days(1));
+            await contractInstance.attack(firstZombieId, secondZombieId, {from: alice});
+            assert.equal(result.receipt.status, true);
+        }) //end it()
     }) //end context()
 }) //end contract{}
