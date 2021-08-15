@@ -16,5 +16,7 @@ contract CallerContract is Ownable {
 
     function updateEthPrice() public {
         uint256 id = oraceInstance.getLatestEthPrice();
+        myRequests[id] = true;
+        emit ReceivedNewRequestIdEvent(id);
     } //end function updateEthPrice()
 } //end CallerContract{}
