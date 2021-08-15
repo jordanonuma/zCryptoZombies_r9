@@ -12,4 +12,8 @@ contract CallerContract is Ownable {
         oracleInstance = EthPriceOracleInterface(oracleAddress);
         emit newOracleAddressEvent(oracleAddress);
     } //end function setOracleInstanceAddress()
+
+    function updateEthPrice() public {
+        
+    } //end function updateEthPrice()
 } //end CallerContract{}
