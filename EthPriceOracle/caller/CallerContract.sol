@@ -24,9 +24,9 @@ contract CallerContract is Ownable {
     } //end function updateEthPrice()
 
     function callback(uint256 _ethPrice, uint256 _id) public {
-        require(myRequests[id] == true, "This request is not in my pending list.");
+        require(myRequests[_id], "This request is not in my pending list.");
         ethPrice = _ethPrice;
-        delete myRequests[id];
-        emit PriceUpdatedEevent(_ethPrice, _id);
+        delete myRequests[_id];
+        emit PriceUpdatedEvent(_ethPrice, _id);
     } //end function callback()
 } //end CallerContract{}
