@@ -7,6 +7,7 @@ contract CallerContract is Ownable {
     address private oracleAddress;
     mapping(uint256=>bool) myRequests;
     event newOracleAddressEvent(address oracleAddress);
+    event ReceivedNewRequestIdEvent(uint256 id);
 
     function setOracleInstanceAddress(address _oracleInstanceAddress) public onlyOwner {
         oracleAddress = _oracleInstanceAddress;
@@ -19,4 +20,8 @@ contract CallerContract is Ownable {
         myRequests[id] = true;
         emit ReceivedNewRequestIdEvent(id);
     } //end function updateEthPrice()
+
+    function callback(uint256 _ethPrice, uint256 _id) public {
+        
+    } //end function callback()
 } //end CallerContract{}
