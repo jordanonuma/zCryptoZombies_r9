@@ -31,6 +31,7 @@ contract CallerContract is Ownable {
     } //end function callback()
 
     modifier onlyOwner() {
-
+        require(msg.sender == oracleAddress, "You are not authorized to call this function.");
+        _;
     } //end modifier onlyOwner()
 } //end CallerContract{}
