@@ -20,4 +20,8 @@ contract EthPriceOracle is Ownable {
         //returns request ID back to function caller
         return id;
     } //end function getLatestEthPrice()
+
+    function setLatestEthPrice(uint256 _ethPrice, address callerAddress, uint256 id) public {
+      
+    } //end function setLatestEthPrice()
 } //end contract EthPriceOracle{}
