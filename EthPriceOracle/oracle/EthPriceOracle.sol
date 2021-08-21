@@ -25,7 +25,13 @@ contract EthPriceOracle is Ownable {
         require(pendingRequests[_id], "This request is not in my pending list.");
         delete pendingRequests[_id];
 
+        //Instantiates with user-defined address.
         CallerContractInterface callerContractInstance;
         callerContractInstance = CallerContractInterface(_callerAddress);
+
+        //Calls callback() and sends front end a notification
+        callerContractInstance.callback(_ethPrice, _id);
+        emit SetLatestEthPriceEvent(_ethPrice, _callerAddress);
+
     } //end function setLatestEthPrice()
 } //end contract EthPriceOracle{}
