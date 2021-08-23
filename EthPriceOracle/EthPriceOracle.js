@@ -20,15 +20,12 @@ async function filterEvents (oracleContract, web3js) {
             return
         }
         
-        await addRequestToQueue (event) {
-
-        }
+        await addRequestToQueue(event)
     })
 
     oracleContract.events.SetLatestEthPriceEvent(async (err, event) => {
         if (err) {
             console.error('Error on event', err)
-            return
         }
         
     })
