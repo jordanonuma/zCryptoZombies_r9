@@ -76,7 +76,7 @@ async function processRequest (oracleContract, ownerAddress, id, callerAddress) 
 
 async function setLatestEthPrice (oracleContract, callerAddress, ownerAddress, ethPrice, id) {
     ethPrice = ethPrice.replace('.', '')
-    const multipler = new BN(ethPrice, 10)
+    const multiplier = new BN(10**10, 10) //not sure if 10**10 is in the right parameter place. It may need 'ethPrice' instead.
 
     const ethPriceInt = (new BN(parseInt(ethPrice), 10)).mul(multiplier)
     const idInt = new BN(parseInt(id))
