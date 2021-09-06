@@ -22,7 +22,7 @@ contract EthPriceOracle {
     function addOracle(address _oracle) public {
         require(owners.has(msg.sender), "Not an owner!"); //Checks if user is an owner
         require(!oracles.has(_oracle), "Already an oracle!"); //Checks if oracle already on list
-        oracle.add(_oracle);
+        oracles.add(_oracle);
         emit AddOracleEvent(_oracle);
     } //end function addOracle()
     
