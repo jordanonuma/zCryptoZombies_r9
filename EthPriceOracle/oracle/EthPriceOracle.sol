@@ -60,7 +60,11 @@ contract EthPriceOracle {
     } //end function getLatestEthPrice()
 
     function setLatestEthPrice(uint256 _ethPrice, address _callerAddress, uint256 _id) public {
+        require(oracles.has(_oracle), "Not an oracle!");
         require(pendingRequests[_id], "This request is not in my pending list.");
+
+        Response memory resp; //declares struct resp[]
+
         delete pendingRequests[_id];
 
         //Instantiates with user-defined address.
