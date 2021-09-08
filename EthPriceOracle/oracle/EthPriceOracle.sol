@@ -13,6 +13,8 @@ contract EthPriceOracle {
     uint private numOracles = 0;
 
     mapping(uint256=>bool) pendingRequests;
+    mapping (uint256=>Response[]) public requestIdToResponse;
+    
     event GetLatestEthPriceEvent(address callerAddress, uint id);
     event SetLatestEthPriceEvent(uint256 ethPrice, address callerAddress);
     event AddOracleEvent(address oracleAddress);
@@ -51,7 +53,7 @@ contract EthPriceOracle {
         return id;
     } //end function getLatestEthPrice()
 
-    function setLatestEthPrice(uint256 _ethPrice, address _callerAddress, uint256 _id) public onlyOwner {
+    function setLatestEthPrice(uint256 _ethPrice, address _callerAddress, uint256 _id) public {
         require(pendingRequests[_id], "This request is not in my pending list.");
         delete pendingRequests[_id];
 
