@@ -67,6 +67,8 @@ contract EthPriceOracle {
         Response memory resp; //declares struct resp[]
         resp = Response(msg.sender, _callerAddress, _ethPrice);
         requestIdToResponse[_id].push(resp);
+        
+        uint numResponses = requestIdToResponse[_id].length;
 
         delete pendingRequests[_id];
 
