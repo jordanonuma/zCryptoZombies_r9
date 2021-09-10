@@ -78,9 +78,9 @@ contract EthPriceOracle {
             //Calls callback() and sends front end a notification
             callerContractInstance.callback(_ethPrice, _id);
             emit SetLatestEthPriceEvent(_ethPrice, _callerAddress);
-        } //end if()
 
-        delete pendingRequests[_id];
+            delete pendingRequests[_id];
+        } //end if()
 
     } //end function setLatestEthPrice()
 } //end contract EthPriceOracle{}
