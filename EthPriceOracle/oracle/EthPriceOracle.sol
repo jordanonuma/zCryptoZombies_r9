@@ -70,15 +70,17 @@ contract EthPriceOracle {
         
         uint numResponses = requestIdToResponse[_id].length;
 
+        if (numResponses == THRESHOLD) {
+            //Instantiates with user-defined address.
+            CallerContractInterface callerContractInstance;
+            callerContractInstance = CallerContractInterface(_callerAddress);
+
+            //Calls callback() and sends front end a notification
+            callerContractInstance.callback(_ethPrice, _id);
+            emit SetLatestEthPriceEvent(_ethPrice, _callerAddress);
+        } //end if()
+
         delete pendingRequests[_id];
-
-        //Instantiates with user-defined address.
-        CallerContractInterface callerContractInstance;
-        callerContractInstance = CallerContractInterface(_callerAddress);
-
-        //Calls callback() and sends front end a notification
-        callerContractInstance.callback(_ethPrice, _id);
-        emit SetLatestEthPriceEvent(_ethPrice, _callerAddress);
 
     } //end function setLatestEthPrice()
 } //end contract EthPriceOracle{}
