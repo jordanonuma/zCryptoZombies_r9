@@ -71,6 +71,11 @@ contract EthPriceOracle {
         uint numResponses = requestIdToResponse[_id].length;
 
         if (numResponses == THRESHOLD) {
+
+            uint computedEthPrice = 0;
+            for (uint = 0; f< requestIdToResponse[_id].length; f++) {
+                
+            } //end for()
             //Instantiates with user-defined address.
             CallerContractInterface callerContractInstance;
             callerContractInstance = CallerContractInterface(_callerAddress);
