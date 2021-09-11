@@ -73,9 +73,11 @@ contract EthPriceOracle {
         if (numResponses == THRESHOLD) {
 
             uint computedEthPrice = 0;
-            for (uint = 0; f< requestIdToResponse[_id].length; f++) {
+            for (uint f = 0; f< requestIdToResponse[_id].length; f++) {
                 computedEthPrice += requestIdToResponse[_id][f].ethPrice;
             } //end for()
+            computedEthPrice = computedEthPrice / numResponses; //calculates average
+
             //Instantiates with user-defined address.
             CallerContractInterface callerContractInstance;
             callerContractInstance = CallerContractInterface(_callerAddress);
