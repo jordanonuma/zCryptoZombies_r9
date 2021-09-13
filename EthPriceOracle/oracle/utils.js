@@ -6,4 +6,5 @@ async function getZkySyncProvider (zksync, networkName) {
         console.log('Unable to connecto to zkSync.');
         console.log(error)
     } //end try-catch{}
+    return zkSyncProvider;
 } //end function getZkySyncProvider()
