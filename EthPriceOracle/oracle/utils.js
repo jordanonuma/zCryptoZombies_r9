@@ -19,4 +19,9 @@ async function getEthereumProvider (ethers, networkName) {
         console.log(error)
     } //end try-catch{}
     return ethersProvider
-  } //end function getEthereumProvider()
+} //end function getEthereumProvider()
+
+async function initAccount (rinkebyWallet, zkSyncProvider, zksync) {
+    const zkSyncWallet = await zksync.Wallet.fromEthSigner(rinkebyWallet, zkSyncProvider)
+    return zkSyncWallet
+} //end function initAccount()
