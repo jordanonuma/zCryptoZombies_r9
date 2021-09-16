@@ -34,5 +34,6 @@ async function registerAccount (wallet) {
         } //end if()
 
         const changePubkey = await wallet.setSigningKey()
+        await changePubkey.awaitReceipt()
     } //end if()
 } //end function registerAccount()
