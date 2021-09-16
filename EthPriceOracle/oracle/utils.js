@@ -44,4 +44,10 @@ async function depositToZkSync (zkSyncWallet, token, amountToDeposit, ethers) {
         token: token,
         amount: ethers.utils.parseEther(amounToDeposit)
     })
+    try {
+        await deposit.awaitReceipt()
+    } catch (error) {
+        console.log('Error while awaiting confirmation from the zkSync operators.')
+        console.log(error)
+    }
 } //end function depositToZkSync()
