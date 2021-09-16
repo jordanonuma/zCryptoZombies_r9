@@ -32,5 +32,7 @@ async function registerAccount (wallet) {
         if (await wallet.getAccountId() === undefined) {
             throw new Error('Unknown account')
         } //end if()
+
+        const changePubkey = await wallet.setSigningKey()
     } //end if()
 } //end function registerAccount()
