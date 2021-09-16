@@ -37,3 +37,7 @@ async function registerAccount (wallet) {
         await changePubkey.awaitReceipt()
     } //end if()
 } //end function registerAccount()
+
+async function depositToZkSync (zkSyncWallet, token, amountToDeposit, ethers) {
+    
+} //end function depositToZkSync()
