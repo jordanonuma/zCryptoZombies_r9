@@ -61,4 +61,6 @@ async function transfer (from, toAddress, amountToTransfer, transferFee, token, 
         amount: closestPackableAmount,
         fee: closestPackableFee
     }) //end from.syncTransfer()
+    console.log('Got transfer receipt.')
+    console.log(transferReceipt)
 } //end function transfer()
