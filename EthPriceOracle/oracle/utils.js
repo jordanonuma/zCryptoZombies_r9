@@ -51,3 +51,7 @@ async function depositToZkSync (zkSyncWallet, token, amountToDeposit, ethers) {
         console.log(error)
     }
 } //end function depositToZkSync()
+
+async function transfer (from, toAddress, amountToTransfer, transferFee, token, zksync, ethers) {
+    
+} //end function transfer()
