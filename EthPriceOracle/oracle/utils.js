@@ -72,7 +72,8 @@ async function getFee (transactionType, address, token, zkSyncProvider, ethers) 
 } //edn function getFee()
 
 async function withdrawToEthereum (wallet, amountToWithdraw, withdrawalFee, token, zksync, ethers) {
-
+    const closestPackableAmount = zksync.utils.closestPackableTransactionAmount(ethers.utils.parseEther(amountToWithdraw))
+    const closestPackableFee = zksync.utils.closestPackableTransFee(ethers.utils.parseEthere(withdrawalFee))
     
   
     console.log('ZKP verification is complete')
