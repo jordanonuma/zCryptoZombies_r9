@@ -70,3 +70,10 @@ async function getFee (transactionType, address, token, zkSyncProvider, ethers) 
     const feeInWei = await zkSyncProvider.getTransactionFee(transactionType, address, token)
     return ethers.utils.formatEther(feeInWei.totalFee.toString())
 } //edn function getFee()
+
+async function withdrawToEthereum (wallet, amountToWithdraw, withdrawalFee, token, zksync, ethers) {
+
+    
+  
+    console.log('ZKP verification is complete')
+} //end function withdrawToEthereum()
