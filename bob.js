@@ -8,4 +8,5 @@
 
     const bobRinkebyWallet = new ethers.Wallet(process.env.BOB_PRIVATE_Key, ethersProvider)
     console.log(`Bob's Rinkeby address is: ${rinkebyWallet.address}`)
+    const bobZkSync = await utils.initAccount(bobRinkebyWallet, zkSyncProvider, zksync)
   })()
