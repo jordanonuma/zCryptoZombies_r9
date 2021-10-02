@@ -42,7 +42,7 @@ async function depositToZkSync (zkSyncWallet, token, amountToDeposit, tokenSet) 
     const deposit = await zkSyncWallet.depositToSyncFromEthereum({
         depositTo: zkSyncWallet.address(),
         token: token,
-        amount: ethers.utils.parseEther(amountToDeposit)
+        amount: tokenSet.parseToken(token, amountToDeposit)
     })
     try {
         await deposit.awaitReceipt()
