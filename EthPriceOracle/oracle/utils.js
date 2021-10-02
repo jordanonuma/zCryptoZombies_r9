@@ -89,4 +89,11 @@ async function displayZkSyncBalance(wallet, tokenSet) {
     const state = await wallet.getAccountState()
     const committedBalances = state.committed.balances()
     const verifiedBalances = state.verified.balances()
+
+    for (const property in committedBalances) {
+
+    } //end for(committedBalances)
+    for (const property in verifiedBalances) {
+        
+    } //end for(verifiedBalances)
 } //end function displayZkSyncBalance()
